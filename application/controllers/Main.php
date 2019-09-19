@@ -32,6 +32,10 @@ class Main extends CI_Controller {
     {
         $this->load->view('dataplay/index',$data);
     }
+    public function course() 
+    {
+        $this->load->view('dataplay/course');
+    }
     public function coursepage()
     {
         // $this->load->Model('NotesModel');

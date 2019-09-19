@@ -166,7 +166,7 @@
 							<!-- Course Info Item -->
 							<div class="course_info_item">
 								<div class="course_info_title">Teacher:</div>
-								<div class="course_info_text"><a href="#">Jacke Masito</a></div>
+								<div class="course_info_text"><a href="#">Nishant Gupta</a></div>
 							</div>
 
 							<!-- Course Info Item -->
@@ -190,8 +190,8 @@
 						<div class="course_tabs_container">
 							<div class="tabs d-flex flex-row align-items-center justify-content-start">
 								<div class="tab active">description</div>
-								<div class="tab">curriculum</div>
-								<div class="tab">reviews</div>
+								<!-- <div class="tab">curriculum</div>
+								<div class="tab">reviews</div> -->
 							</div>
 							<div class="tab_panels">
 
@@ -582,7 +582,7 @@
 
 	<!-- Newsletter -->
 
-	<div class="newsletter">
+	<!-- <div class="newsletter">
 		<div class="newsletter_background" style="background-image:url(images/newsletter_background.jpg)"></div>
 		<div class="container">
 			<div class="row">
@@ -590,13 +590,13 @@
 					<div class="newsletter_container d-flex flex-lg-row flex-column align-items-center justify-content-start">
 
 						<!-- Newsletter Content -->
-						<div class="newsletter_content text-lg-left text-center">
+						<!-- <div class="newsletter_content text-lg-left text-center">
 							<div class="newsletter_title">sign up for news and offers</div>
 							<div class="newsletter_subtitle">Subcribe to lastest smartphones news & great deals we offer</div>
 						</div>
-
+ -->
 						<!-- Newsletter Form -->
-						<div class="newsletter_form_container ml-lg-auto">
+						<!-- <div class="newsletter_form_container ml-lg-auto">
 							<form action="#" id="newsletter_form" class="newsletter_form d-flex flex-row align-items-center justify-content-center">
 								<input type="email" class="newsletter_input" placeholder="Your Email" required="required">
 								<button type="submit" class="newsletter_button">subscribe</button>
@@ -607,8 +607,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</div>  -->
+	
 	<!-- Footer -->
 
 	<footer class="footer">
