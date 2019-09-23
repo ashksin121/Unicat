@@ -32,9 +32,17 @@ class Main extends CI_Controller {
     {
         $this->load->view('dataplay/index',$data);
     }
-    public function course() 
+    public function statistics() 
     {
-        $this->load->view('dataplay/course');
+        $this->load->view('dataplay/statistics');
+    }
+    public function ml() 
+    {
+        $this->load->view('dataplay/ml');
+    }
+    public function dl() 
+    {
+        $this->load->view('dataplay/dl');
     }
     public function coursepage()
     {

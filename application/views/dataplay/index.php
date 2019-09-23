@@ -475,10 +475,10 @@
 				<!-- Course -->
 				<div class="col-lg-6 course_col">
 					<div class="course">
-						<div class="course_image"><img src="<?=THEME?>images/course_1.jpg" alt=""></div>
+						<div class="course_image"><img src="<?=THEME?>images/course_4.jpg" alt=""></div>
 						<div class="course_body">
-							<h3 class="course_title"><a href="<?=CTRL?>Main/course">Software Training</a></h3>
-							<div class="course_teacher">Mr. John Taylor</div>
+							<h3 class="course_title"><a href="<?=CTRL?>Main/statistics">Introduction to Statistics</a></h3>
+							<div class="course_teacher">Nishant Gupta</div>
 							<div class="course_text">
 								<p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
 							</div>
@@ -502,10 +502,10 @@
 				<!-- Course -->
 				<div class="col-lg-6 course_col">
 					<div class="course">
-						<div class="course_image"><img src="<?=THEME?>images/course_2.jpg" alt=""></div>
+						<div class="course_image"><img src="<?=THEME?>images/course_5.jpg" alt=""></div>
 						<div class="course_body">
-							<h3 class="course_title"><a href="course.html">Developing Mobile Apps</a></h3>
-							<div class="course_teacher">Ms. Lucius</div>
+							<h3 class="course_title"><a href="<?=CTRL?>Main/ml">Machine Learning</a></h3>
+							<div class="course_teacher">Nishant Gupta</div>
 							<div class="course_text">
 								<p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
 							</div>
