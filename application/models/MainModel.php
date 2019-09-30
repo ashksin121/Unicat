@@ -43,7 +43,20 @@ Class MainModel extends CI_Model
         // }
         public function coursedatamodel($user_id) {
             $result = array();
-            $sql = "SELECT courses.course_id,course_name,course_author,course_description,course_rating FROM courses, enrolled WHERE courses.course_id=enrolled.course_id AND enrolled.user_id='$user_id'";
+            $sql = "SELECT courses.course_id,course_name,course_author,course_description,course_rating,link FROM courses, enrolled WHERE courses.course_id=enrolled.course_id AND enrolled.user_id='$user_id'";
+            $query = $this->db->query($sql);
+            if ($query->num_rows() > 0) {
+                $data = $query->result_array();
+                $result['course'] = $data;
+                $result['status'] = true;
+            } else {
+                $result['status'] = false;
+            }   
+            return $result;
+        }
+        public function checkcourseregister($user_id,$course_id) {
+            $result = array();
+            $sql = "SELECT user_id,course_id FROM enrolled WHERE course_id='$course_id' AND user_id='$user_id'";
             $query = $this->db->query($sql);
             if ($query->num_rows() > 0) {
                 $data = $query->result_array();

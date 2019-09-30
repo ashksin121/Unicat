@@ -65,9 +65,9 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="courses.html">Courses</a></li>
+									<li><a href="<?=CTRL?>Main/mainpage">Home</a></li>
+									<li><a href="<?=CTRL?>Main/about">About</a></li>
+									<li><a href="<?=CTRL?>Main/coursepage">Courses</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="#">Page</a></li>
 									<li><a href="contact.html">Contact</a></li>
@@ -121,9 +121,9 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Home</a></li>
-				<li class="menu_mm"><a href="#">About</a></li>
-				<li class="menu_mm"><a href="#">Courses</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/mainpage">Home</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/about">About</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/coursepage">Courses</a></li>
 				<li class="menu_mm"><a href="#">Blog</a></li>
 				<li class="menu_mm"><a href="#">Page</a></li>
 				<li class="menu_mm"><a href="contact.html">Contact</a></li>
@@ -162,6 +162,16 @@
 					
 					<div class="course_container">
 						<div class="course_title">Introduction to Statistics</div>
+						<div>
+							<? php if ($check === 0): ?>
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal1">Register Now</button>
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal2">Login</button>
+							<? php elseif ($check === 1): ?>
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal1">Register for course</button>
+							<? php else: ?>
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal1">Go to Course</button>
+							<? php endif; ?>
+						</div>
 						<div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
 
 							<!-- Course Info Item -->
@@ -579,6 +589,160 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<!-- Large Modal for Register Button-->
+	<div class="modal fade bd-example-modal-lg modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<!-- <div class="row"> -->
+						<form class="needs-validation" action="<?=CTRL?>Main/new_register" method="post" novalidate> 					
+							<div class="form-group row">
+								<label for="validationCustom01" class="col-sm-2 col-form-label">First name</label>
+								<div class="col-sm-10">
+								<input type="text" name ="first_name" class="form-control" id="validationCustom01" placeholder="First name" required>
+								</div>
+								<div class="valid-feedback">
+									Looks good!
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="validationCustom02" class="col-sm-2 col-form-label">Last name</label>
+								<div class="col-sm-10">
+								<input type="text" name ="last_name" class="form-control" id="validationCustom02" placeholder="Last name" required>
+								</div>
+								<div class="valid-feedback">
+									Looks good!
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="validationCustomUsername" class="col-sm-2 col-form-label">E - Mail</label>
+								<div class="col-sm-10">
+								<input type=email name="email" class="form-control" id="validationCustomUsername" placeholder="E Mail" aria-describedby="inputGroupPrepend" required>
+								</div>
+								<div class="valid-feedback">
+									Please Enter a Email.
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+								<div class="col-sm-10">
+								<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+								</div>
+							</div>
+							<!-- <div class="form-group">
+								<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+								<label class="form-check-label" for="invalidCheck">
+									Agree to terms and conditions
+								</label>
+								<div class="invalid-feedback">
+									You must agree before submitting.
+								</div>
+								</div>
+							</div> -->
+							<button class="btn btn-primary" type="submit" name="submit" value="submit" >Submit form</button>
+						</form>
+							<script>
+							// Example starter JavaScript for disabling form submissions if there are invalid fields
+							(function() {
+							'use strict';
+							window.addEventListener('load', function() {
+								// Fetch all the forms we want to apply custom Bootstrap validation styles to
+								var forms = document.getElementsByClassName('needs-validation');
+								// Loop over them and prevent submission
+								var validation = Array.prototype.filter.call(forms, function(form) {
+								form.addEventListener('submit', function(event) {
+									if (form.checkValidity() === false) {
+									event.preventDefault();
+									event.stopPropagation();
+									}
+									form.classList.add('was-validated');
+								}, false);
+								});
+							}, false);
+							})();
+							</script>
+					<!-- </div> -->
+				</div>					
+			</div>
+			<!-- <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div> -->
+		</div>
+	</div>
+	</div>
+	
+
+	<!-- Second Modal-->
+	<div class="modal fade bd-example-modal-lg modal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+				<div class="container"> 
+					<!-- <div class="row"> -->
+						<form class="needs-validation" action="<?=CTRL?>Main/main_login" method="post" novalidate> 					
+							<div class="form-group row">
+								<label for="validationCustomUsername" class="col-sm-2 col-form-label">E - Mail</label>
+								<div class="col-sm-10">
+								<input type=email name="email" class="form-control" id="validationCustomUsername" placeholder="E Mail" aria-describedby="inputGroupPrepend" required>
+								</div>
+								<div class="valid-feedback">
+									Please Enter a Email.
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+								<div class="col-sm-10">
+								<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+								</div>
+							</div>
+							<button class="btn btn-primary" type="submit" name="submit" value="submit" >Login</button>
+						</form>
+							<script>
+							// Example starter JavaScript for disabling form submissions if there are invalid fields
+							(function() {
+							'use strict';
+							window.addEventListener('load', function() {
+								// Fetch all the forms we want to apply custom Bootstrap validation styles to
+								var forms = document.getElementsByClassName('needs-validation');
+								// Loop over them and prevent submission
+								var validation = Array.prototype.filter.call(forms, function(form) {
+								form.addEventListener('submit', function(event) {
+									if (form.checkValidity() === false) {
+									event.preventDefault();
+									event.stopPropagation();
+									}
+									form.classList.add('was-validated');
+								}, false);
+								});
+							}, false);
+							})();
+							</script>
+					<!-- </div> -->
+				</div>					
+			</div>
+			<!-- <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div> -->
+		</div>
+	</div>
 	</div>
 
 	<!-- Newsletter -->

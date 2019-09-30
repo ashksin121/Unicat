@@ -64,8 +64,8 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
+									<li><a href="<?=CTRL?>Main/mainpage">Home</a></li>
+									<li><a href="<?=CTRL?>Main/about">About</a></li>
 									<li class="active"><a href="courses.html">Courses</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="#">Page</a></li>
@@ -121,7 +121,7 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="<?=CTRL?>Main/mainpage">Home</a></li>
-				<li class="menu_mm"><a href="#">About</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/about">About</a></li>
 				<li class="menu_mm"><a href="#">Courses</a></li>
 				<li class="menu_mm"><a href="#">Blog</a></li>
 				<li class="menu_mm"><a href="#">Page</a></li>
@@ -165,7 +165,7 @@
 								<div class="course">
 									<div class="course_image"><img src="<?=THEME?>images/course_4.jpg" alt=""></div>
 									<div class="course_body">
-										<h3 class="course_title"><a href="course.html"><?php echo $cour['course_name'];?></a></h3>
+										<h3 class="course_title"><a href="<?=CTRL?>Main/<?php echo $cour['link'];?>"><?php echo $cour['course_name'];?></a></h3>
 										<div class="course_teacher"><?php echo $cour['course_author'];?></div>
 										<div class="course_text">
 											<p><?php echo $cour['course_description'];?></p>

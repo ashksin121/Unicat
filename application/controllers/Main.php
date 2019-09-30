@@ -28,13 +28,39 @@ class Main extends CI_Controller {
         date_default_timezone_set('Asia/Kolkata');
 
     }
-    public function mainpage($data = '')
+    public function mainpage()
     {
+        $data = array();
+        if($this->session->userdata('isUserLoggedIn')){
+            $data['check'] = 0;
+        }
+        else {
+            $data['check'] = 1;
+        }
         $this->load->view('dataplay/index',$data);
     }
     public function statistics() 
     {
-        $this->load->view('dataplay/statistics');
+        $data['check'] = 0;
+        if($this->session->userdata('isUserLoggedIn')){
+            // $sheet = $this->MainModel->coursedata($this->session->userdata('usersecondId'));
+            //redirect(CTRL."Main/".$this->session->userdata('usersecondid'));
+            $user_id = $this->session->userdata['usersecondId'];
+            $course_data = $this->MainModel->checkcourseregister($user_id,1);
+            if ($course_data['status']) {
+                // $this->load->view('dataplay/courses',$course_data);
+                $data['check'] = 1;
+            } else {
+                // redirect(CTRL."Main/mainpage");
+                $data['check'] = 2;
+            }
+            
+        }
+        else{
+            // redirect(CTRL."Main/mainpage");
+            $data = 3;
+        }
+        $this->load->view('dataplay/statistics',$data);
     }
     public function ml() 
     {
@@ -43,6 +69,10 @@ class Main extends CI_Controller {
     public function dl() 
     {
         $this->load->view('dataplay/dl');
+    }
+    public function about() 
+    {
+        $this->load->view('dataplay/about');
     }
     public function coursepage()
     {

@@ -64,8 +64,8 @@
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
 									<li class="active"><a href="#">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="courses.html">Courses</a></li>
+									<li><a href="<?=CTRL?>Main/about">About</a></li>
+									<li><a href="<?=CTRL?>Main/coursepage">Courses</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="#">Page</a></li>
 									<li><a href="contact.html">Contact</a></li>
@@ -119,9 +119,9 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Home</a></li>
-				<li class="menu_mm"><a href="#">About</a></li>
-				<li class="menu_mm"><a href="#">Courses</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/mainpage">Home</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/about">About</a></li>
+				<li class="menu_mm"><a href="<?=CTRL?>Main/coursepage">Courses</a></li>
 				<li class="menu_mm"><a href="#">Blog</a></li>
 				<li class="menu_mm"><a href="#">Page</a></li>
 				<li class="menu_mm"><a href="contact.html">Contact</a></li>
@@ -148,9 +148,9 @@
 									<div class="home_slider_subtitle">Future Of Education Technology</div>
 									<div class="home_slider_subtitle mt-4">
 									<div>
+										<?php echo $check; ?>
 										<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal1">Register Now</button>
-										<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal2">Login</button>
-									
+										<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".modal2">Login</button>	
 									</div>
 									</div>
 									<!-- <div class="home_slider_form_container">

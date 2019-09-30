@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 18, 2019 at 11:22 PM
+-- Generation Time: Sep 30, 2019 at 11:39 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -33,19 +33,18 @@ CREATE TABLE `courses` (
   `course_name` varchar(32) NOT NULL,
   `course_author` varchar(32) NOT NULL,
   `course_description` varchar(32) NOT NULL,
-  `course_rating` varchar(32) NOT NULL
+  `course_rating` varchar(32) NOT NULL,
+  `link` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`course_id`, `course_name`, `course_author`, `course_description`, `course_rating`) VALUES
-(1, 'Introduction to Statistics', 'Nishant Gupta', 'Desc1', '4.5'),
-(2, 'Machine Learning', 'Nishant Gupta', 'Desc2', '4.5'),
-(3, 'Deep Learning', 'Nishant Gupta', 'Desc3', '4.5'),
-(4, 'Course 4', 'Auth4', 'Desc4', '4.5'),
-(5, 'Course 5', 'Auth5', 'Desc5', '4.5');
+INSERT INTO `courses` (`course_id`, `course_name`, `course_author`, `course_description`, `course_rating`, `link`) VALUES
+(1, 'Introduction to Statistics', 'Nishant Gupta', 'Desc1', '4.5', 'statistics'),
+(2, 'Machine Learning', 'Nishant Gupta', 'Desc2', '4.5', 'ml'),
+(3, 'Deep Learning', 'Nishant Gupta', 'Desc3', '4.5', 'dl');
 
 -- --------------------------------------------------------
 
@@ -64,15 +63,51 @@ CREATE TABLE `enrolled` (
 
 INSERT INTO `enrolled` (`user_id`, `course_id`) VALUES
 ('1f3e84d29ce8e3fdad3d6867ba7b3c1b', 3),
-('1f3e84d29ce8e3fdad3d6867ba7b3c1b', 4),
 ('317ab7c66326bf3690e9201998d05e6a', 2),
 ('317ab7c66326bf3690e9201998d05e6a', 3),
-('317ab7c66326bf3690e9201998d05e6a', 4),
 ('a19359d19f56997f6b9e4b6abac2ca2d', 1),
 ('a19359d19f56997f6b9e4b6abac2ca2d', 3),
 ('d23f67088519c7660fe7c1740e2289f0', 1),
-('d23f67088519c7660fe7c1740e2289f0', 2),
-('d23f67088519c7660fe7c1740e2289f0', 4);
+('d23f67088519c7660fe7c1740e2289f0', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `payment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `txn_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `payment_gross` float(10,2) NOT NULL,
+  `currency_code` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `payer_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `payment_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `price` float(10,2) NOT NULL,
+  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `image`, `price`, `status`) VALUES
+(1, 'Product 1', 'partner_1.png', 15.00, '1'),
+(2, 'Product 2', 'partner_2.png', 25.00, '1');
 
 -- --------------------------------------------------------
 
@@ -116,6 +151,18 @@ ALTER TABLE `enrolled`
   ADD UNIQUE KEY `user_id` (`user_id`,`course_id`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `registered`
 --
 ALTER TABLE `registered`
@@ -130,6 +177,18 @@ ALTER TABLE `registered`
 --
 ALTER TABLE `courses`
   MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `registered`
